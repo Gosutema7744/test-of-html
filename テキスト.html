@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>カウントダウン</title>
+    <style>
+* {
+    font:normal normal normal medium/normal sans-serif;
+    font-family: sans-serif;
+    color:white;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color:black;
+}
+
+#title{
+    background:white;
+    color:#0099ff;
+    
+}
+</style>
+
+</head>
+<body>
+
+    <p>カウントダウン</p><br>
+    <script>
+var y = new Date().getFullYear(); 
+var m = 12; 
+var d = 31; 
+var tgday = y + "/" + m + "/" + d;
+var now = new Date();
+var days = Math.ceil((Date.parse(tgday) - now.getTime()) / (24 * 60 * 60 * 1000));
+
+if(days == 0) {
+    document.write('今年も終わり'); 
+}
+else if(days < 0) {
+    days = Math.abs(days);
+    document.write('去年から <b>' + days + '</b> 日が過ぎました。'); 
+}
+else {
+    document.write('今年' + y + '</b>は残り <b>' + days + '</b> 日です。<br>'); 
+}
+</script>
+
+    <script>
+var y = new Date().getFullYear(); 
+var d = 31; 
+
+for(let m = 1; m < 13; m++){
+    var tgday = y + "/" + m + "/" + d;
+    var now = new Date();
+    var days = Math.ceil((Date.parse(tgday) - now.getTime()) / (24 * 60 * 60 * 1000));
+
+    if(days == 0) {
+        document.write('今月も終わり'); 
+    
+    }
+    else if(days < 0) {
+        days = Math.abs(days);
+        document.write('先月から <b>' + days + '</b> 日が過ぎました。'); 
+    }
+    else {
+        document.write(' <b>' + m + '</b>月→残り <b>' + days + '</b> 日<br>'); 
+    }
+    
+}
+</script>
+
+    <h3>メモ</h3>
+
+    <form action="#"><textarea name="テキストエリア" rows="10" cols="30" wrap="hard">ここに入力</textarea></form><br><br>
+
+</body>
+</html>
